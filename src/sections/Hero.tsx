@@ -45,17 +45,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-bg/40" />
       </div>
 
-      {/* aurora glow blobs */}
-      <div
-        aria-hidden
-        className="absolute -left-[10%] top-[12%] h-[44vw] w-[44vw] rounded-full bg-violet/20 blur-[120px] animate-aurora"
-      />
-      <div
-        aria-hidden
-        className="absolute -right-[6%] top-[30%] h-[36vw] w-[36vw] rounded-full bg-cyan/15 blur-[120px] animate-aurora"
-        style={{ animationDelay: '-8s' }}
-      />
-
       {/* WebGL orb */}
       {!reduced && (
         <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
