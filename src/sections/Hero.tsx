@@ -1,15 +1,11 @@
-import { Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { useTypewriter } from '../hooks/useTypewriter'
-import { prefersReducedMotion } from '../hooks/useReducedMotion'
 import { getProduct } from '../lib/products'
 import Img from '../components/Img'
 import Eyebrow from '../components/Eyebrow'
 import Button from '../components/Button'
 import { ArrowRight, ArrowUpRight, Check } from '../components/icons'
-
-const HeroScene = lazy(() => import('../components/HeroScene'))
 
 const HEADLINES = [
   'Your Weight-Loss Journey Reinvented by Science',
@@ -27,7 +23,6 @@ const fadeUp = {
 
 export default function Hero() {
   const { text } = useTypewriter(HEADLINES)
-  const reduced = prefersReducedMotion()
   const featured = getProduct('retatrutide-40mg')
 
   return (
@@ -44,15 +39,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_0%,transparent,#0A0B0F_72%)]" />
         <div className="absolute inset-0 bg-bg/40" />
       </div>
-
-      {/* WebGL orb */}
-      {!reduced && (
-        <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
-          <Suspense fallback={null}>
-            <HeroScene />
-          </Suspense>
-        </div>
-      )}
 
       <div className="shell relative grid min-h-[100svh] items-center gap-12 pb-24 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:pt-28">
         {/* copy */}
